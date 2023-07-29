@@ -8,7 +8,9 @@ import {
 } from "@mui/material";
 import { Home, Person4 } from "@mui/icons-material";
 import React from "react";
+import Routes from "./routes/web";
 import BottomMenu from "./components/BottomMenu";
+import BottomMenu2 from "./components/BottomMenu2";
 
 function App() {
   return (
@@ -23,7 +25,10 @@ function App() {
         </Toolbar>
       </AppBar>
       {/* Header */}
-      <BottomMenu />
+      {/* Content */}
+      <Routes />
+      {/* Content */}
+      <BottomMenu2 />
     </React.Fragment>
   );
 }
