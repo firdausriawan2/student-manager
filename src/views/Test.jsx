@@ -18,7 +18,12 @@ function Test() {
           throw new Error("Tidak ditemukan kamera.");
         }
 
-        const kamera = daftarKamera[0];
+        // Pilih kamera belakang jika tersedia
+        const kameraBelakang = daftarKamera.find((kamera) =>
+          kamera.label.toLowerCase().includes("back")
+        );
+        const kamera = kameraBelakang || daftarKamera[0]; // Jika kamera belakang tidak tersedia, gunakan kamera pertama dari daftar
+
         scanner = new QrScanner(
           videoElement,
           (hasil) => {
