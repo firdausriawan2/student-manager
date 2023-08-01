@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import ScanSiswa from "../views/ScanSiswa";
 import Home from "../views/Home";
 import Test from "../views/Test";
-
+import Profile from "../views/Profile";
 function RoutesIndex() {
   return (
     <Routes>
@@ -13,6 +13,9 @@ function RoutesIndex() {
 
       {/* route "/posts" */}
       <Route path="/scan" element={<Test />} />
+
+      {/* route "/posts" */}
+      <Route path="/profile" element={<Profile />} />
 
       {/* route "/posts" */}
       <Route path="/posts" element={<ScanSiswa />} />

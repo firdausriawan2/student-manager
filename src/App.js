@@ -1,16 +1,9 @@
-import {
-  AppBar,
-  Avatar,
-  BottomNavigation,
-  BottomNavigationAction,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import { Home, Person4 } from "@mui/icons-material";
+import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
+import { Person4 } from "@mui/icons-material";
 import React from "react";
 import Routes from "./routes/web";
 import BottomMenu from "./components/BottomMenu";
-import BottomMenu2 from "./components/BottomMenu2";
+// import BottomMenu2 from "./components/BottomMenu2";
 
 function App() {
   return (
@@ -28,7 +21,7 @@ function App() {
       {/* Content */}
       <Routes />
       {/* Content */}
-      <BottomMenu2 />
+      <BottomMenu />
     </React.Fragment>
   );
 }

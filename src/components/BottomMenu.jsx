@@ -1,15 +1,14 @@
-import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
 import {
-  Home,
-  Person4,
-  PersonRounded,
-  QrCodeScanner,
-} from "@mui/icons-material";
+  BottomNavigation,
+  BottomNavigationAction,
+  Fab,
+  Box,
+} from "@mui/material";
+import { Home, PersonRounded, QrCodeScanner } from "@mui/icons-material";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function BottomMenu() {
-  const [value, setValue] = React.useState(0);
   return (
     <Box
       sx={{
@@ -26,10 +25,6 @@ function BottomMenu() {
         sx={{
           backgroundColor: "primary",
         }}
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
       >
         <BottomNavigationAction
           component={Link}
@@ -37,16 +32,18 @@ function BottomMenu() {
           label="Home"
           icon={<Home />}
         />
-        <BottomNavigationAction
-          component={Link}
+        <Fab
+          LinkComponent={Link}
           to="/scan"
-          label="Scan"
-          icon={<QrCodeScanner />}
-        />
+          color="primary"
+          sx={{ bottom: 20 }}
+        >
+          <QrCodeScanner />
+        </Fab>
         <BottomNavigationAction
           component={Link}
           to="/profile"
-          label="Profile"
+          label="ProfileTe"
           icon={<PersonRounded />}
         />
       </BottomNavigation>

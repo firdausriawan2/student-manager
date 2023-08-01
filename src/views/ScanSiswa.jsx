@@ -1,54 +1,46 @@
-import { Person4, QrCodeScanner, Stop } from "@mui/icons-material";
-import { AppBar, Avatar, Box, Fab, Toolbar, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import QrScanner from "qr-scanner";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
-let stopScan = false;
 let hasilScan = "";
 
 function ScanSiswa() {
-  const [btnScan, setBtnScan] = useState(true);
+  useEffect(() => {
+    let scanner;
 
-  const mulaiScan = async (isScan) => {
-    setBtnScan(isScan);
-    stopScan = isScan;
-    if (btnScan === false) return;
-    await new Promise((r) => setTimeout(r, 100));
-    const videoElement = document.getElementById("scanView");
-    const scanner = new QrScanner(
-      videoElement,
-      (result) => {
-        hasilScan = result.data;
-        setBtnScan(true);
-        stopScan = true;
-      },
-      {
-        onDecodeError: (err) => {
-          console.error(err);
-        },
-        maxScansPerSecond: 1,
-        highlightScanRegion: true,
-        returnDetailedScanResult: true,
-      }
-    );
-    await scanner.start();
-    while (stopScan === false) {
+    const startScan = async () => {
       await new Promise((r) => setTimeout(r, 100));
-    }
-    scanner.stop();
-    scanner.destroy();
-  };
+      const videoElement = document.getElementById("scanView");
+
+      scanner = new QrScanner(
+        videoElement,
+        (result) => {
+          console.log("Hasil pindai:", result.data);
+          hasilScan = result.data;
+        },
+        {
+          onDecodeError: (err) => {
+            console.log("kesalahan pemindai QR:", err);
+          },
+          maxScansPerSecond: 1,
+          highlightScanRegion: true,
+          returnDetailedScanResult: true,
+        }
+      );
+      await scanner.start();
+    };
+
+    startScan();
+
+    return () => {
+      if (scanner) {
+        scanner.destroy();
+      }
+    };
+  }, []);
 
   return (
-    <React.Fragment>
-      <AppBar>
-        <Toolbar>
-          <Avatar sx={{ mr: 1, bgcolor: "secondary-main" }}>
-            <Person4 />
-          </Avatar>
-          <Typography variant="h6">QR Code Scanner</Typography>
-        </Toolbar>
-      </AppBar>
+    <>
       <Box
         sx={{
           display: "flex",
@@ -58,34 +50,23 @@ function ScanSiswa() {
           justifyContent: "center",
         }}
       >
-        {btnScan === false && (
-          <video
-            id="scanView"
-            style={{
-              width: "100%",
-              maxWidth: "400px",
-              height: "100%",
-              maxHeight: "400px",
-              borderStyle: "dotted",
-            }}
-          ></video>
-        )}
-        {btnScan && (
-          <Typography variant="h6">
-            Hasil Scan: <br />
-            {hasilScan}
-          </Typography>
-        )}
-        <Fab
-          color={btnScan ? "primary" : "secondary"}
-          sx={{ position: "absolute", bottom: 16, right: 16 }}
-          onClick={() => mulaiScan(!btnScan)}
-        >
-          {btnScan && <QrCodeScanner />}
-          {btnScan === false && <Stop />}
-        </Fab>
+        <video
+          id="scanView"
+          style={{
+            width: "100%",
+            // maxWidth: "400px",
+            height: "100%",
+            // maxHeight: "400px",
+            borderStyle: "dotted",
+          }}
+        ></video>
+        <Typography variant="h6" sx={{ position: "absolute", bottom: 90 }}>
+          Hasil Scan:
+          <br />
+          {hasilScan}
+        </Typography>
       </Box>
-    </React.Fragment>
+    </>
   );
 }
 
