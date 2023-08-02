@@ -12,7 +12,7 @@ function BottomMenu() {
   return (
     <Box
       sx={{
-        position: "absolute",
+        position: "fixed",
         bottom: 0,
         top: "auto",
         left: 0,
