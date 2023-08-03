@@ -21,7 +21,7 @@ function BottomMenu() {
       }}
     >
       <BottomNavigation
-        showLabels
+        // showLabels
         sx={{
           backgroundColor: "primary",
         }}

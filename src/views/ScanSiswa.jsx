@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import QrScanner from "qr-scanner";
 import React, { useEffect } from "react";
 
@@ -60,11 +60,6 @@ function ScanSiswa() {
             borderStyle: "dotted",
           }}
         ></video>
-        <Typography variant="h6" sx={{ position: "absolute", bottom: 90 }}>
-          Hasil Scan:
-          <br />
-          {hasilScan}
-        </Typography>
       </Box>
     </>
   );
