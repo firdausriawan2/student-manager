@@ -72,7 +72,7 @@ function Home() {
           <Card sx={{ margin: 1, height: "240px", maxHeight: "240px" }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="https://mui.com//static/images/cards/contemplative-reptile.jpg"
+              image="https://media.istockphoto.com/id/1288965449/vector/graphic-designer-creating-logo-design-vector-flat-isometric-illustration.jpg?s=612x612&w=0&k=20&c=G-Nhw42gJpuf72LBeh7dXHZddr7UV7bTt72ZEsqevzY="
               title="green iguana"
             />
             <CardContent>
@@ -89,7 +89,7 @@ function Home() {
           <Card sx={{ margin: 1, height: "240px", maxHeight: "240px" }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="https://mui.com//static/images/cards/contemplative-reptile.jpg"
+              image="https://y6a2n7m3.rocketcdn.me/wp-content/uploads/2020/07/SRE.jpg"
               title="green iguana"
             />
             <CardContent>
@@ -106,7 +106,7 @@ function Home() {
           <Card sx={{ margin: 1, height: "240px", maxHeight: "240px" }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="https://mui.com//static/images/cards/contemplative-reptile.jpg"
+              image="https://img.freepik.com/premium-vector/modern-isometric-design-cloud-server-management-man-working-data-center-room-managing-data-cloud-server-vector-illustration_142963-86.jpg?w=2000"
               title="green iguana"
             />
             <CardContent>
@@ -123,7 +123,7 @@ function Home() {
           <Card sx={{ margin: 1, height: "240px", maxHeight: "240px" }}>
             <CardMedia
               sx={{ height: 140 }}
-              image="https://mui.com//static/images/cards/contemplative-reptile.jpg"
+              image="https://img.freepik.com/free-vector/programming-concept-illustration_114360-1351.jpg?w=2000"
               title="green iguana"
             />
             <CardContent>
@@ -147,7 +147,7 @@ function Home() {
       >
         {students.length > 0 ? (
           students.map((student, index) => (
-            <ListItem alignItems="flex-start">
+            <ListItem alignItems="flex-start" key={index}>
               <ListItemAvatar>
                 <Avatar alt={student.name} src="/static/images/avatar/1.jpg" />
               </ListItemAvatar>
@@ -169,7 +169,7 @@ function Home() {
             </ListItem>
           ))
         ) : (
-          <span>asdasd</span>
+          <span>Data tidak ada</span>
         )}
       </List>
     </Box>

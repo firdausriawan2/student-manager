@@ -23,13 +23,13 @@ export default function Schedules() {
       >
         <SwiperSlide>
           <img
-            src="https://s.uiinitiative.com/items/shaders-slider/screenshots/1.jpg"
+            src="https://cdn.smkn1ttslp.sch.id/2021/09/smk-n-1-tebing-tinggi-slide-1.jpg"
             alt=""
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://s.uiinitiative.com/items/shaders-slider/screenshots/3.jpg"
+            src="https://cdn.smkn1ttslp.sch.id/2021/09/smk-n-1-tebing-tinggi-slide-2.jpg"
             alt=""
           />
         </SwiperSlide>
